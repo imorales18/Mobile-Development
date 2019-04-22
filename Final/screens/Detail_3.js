@@ -8,7 +8,6 @@ import {
   FlatList,
   TouchableOpacity,
   View,
-  TextInput,
   Button,
   Alert,
 } from 'react-native';
@@ -17,41 +16,29 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
 
   _onPressButton() {
      Alert.alert('Class Favorited!')
    }
 
-_navigate(){
-  this.props.navigation.navigate('HomeScreen')
-}
-
-  static navigationOptions = {
-    header: null,
-  };
-
   _gotoScreen = (key) => {
     console.log("Going to " + key);
   }
-
-
   render() {
     const {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>You Have Selected Rogue!</Text>
-            <TextInput
-                style={{height: 40}}
-                placeholder="Search Stats"
-                onChangeText={(text) => this.setState({text})}
-            />
+            <Text style={styles.getStartedText}>You have selected Wizard!</Text>
             <FlatList
-             data={[{key: 'stats',image: require('../assets/images/roguestats.jpg')}]}
+             data={[{key: 'dino1',image: require('../assets/images/wizardstats.jpg')}]}
              keyExtractor={this._keyExtractor}
               renderItem={({item}) => <TouchableOpacity onPress={(event) => { console.log(item.key) }}>
-                <Image source={item.image} style={{width:500,height:500}} />
+                <Image source={item.image} style={{width:600,height:500}} />
               </TouchableOpacity>}
             />
             <Button
@@ -61,12 +48,9 @@ _navigate(){
           </View>
         </ScrollView>
       </View>
-
-
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

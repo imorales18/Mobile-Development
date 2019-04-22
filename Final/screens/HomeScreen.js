@@ -26,12 +26,38 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>Cats are amazing</Text>
+            <Text style={styles.getStartedText}>Welcome To Character Collector</Text>
+              <Text style={styles.getStartedText}>Choose Your Class below</Text>
+
             <FlatList
-             data={[{key: 'cat1',image: require('../assets/images/cat1.png')}, {key: 'cat2',image: require('../assets/images/cat2.png')}]}
+             data={[{key: 'rogue',image: require('../assets/images/rogue.png')}]}
              keyExtractor={this._keyExtractor}
-              renderItem={({item}) => <TouchableOpacity onPress={(event) => { this.props.navigation.navigate('Detail') }}>
-                <Image source={item.image} style={{width:200,height:200}} />
+              renderItem={({item}) => <TouchableOpacity onPress={(event) => {this.props.navigation.navigate('Detail')}}>
+                <Image source={item.image} style={{width:200,height:300}} />
+              </TouchableOpacity>}
+            />
+
+            <FlatList
+             data={[{key: 'ranger',image: require('../assets/images/ranger.png')}]}
+             keyExtractor={this._keyExtractor}
+              renderItem={({item}) => <TouchableOpacity onPress={(event) => {this.props.navigation.navigate('Detail_2')}}>
+                <Image source={item.image} style={{width:200,height:300}} />
+              </TouchableOpacity>}
+            />
+
+            <FlatList
+             data={[{key: 'ranger',image: require('../assets/images/wizard.png')}]}
+             keyExtractor={this._keyExtractor}
+              renderItem={({item}) => <TouchableOpacity onPress={(event) => {this.props.navigation.navigate('Detail_3')}}>
+                <Image source={item.image} style={{width:200,height:500}} />
+              </TouchableOpacity>}
+            />
+
+            <FlatList
+             data={[{key: 'ranger',image: require('../assets/images/warlock.png')}]}
+             keyExtractor={this._keyExtractor}
+              renderItem={({item}) => <TouchableOpacity onPress={(event) => {this.props.navigation.navigate('Detail_4')}}>
+                <Image source={item.image} style={{width:300,height:300}} />
               </TouchableOpacity>}
             />
           </View>
